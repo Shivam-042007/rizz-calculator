@@ -1,0 +1,9 @@
+# Allow all search engines to crawl the site
+User-agent: *
+Allow: /
+
+# Block specific "junk" or private paths (if you add them later)
+# Disallow: /private/
+
+# Link to your sitemap to help bots find your content
+Sitemap: https://hype-rizz.netlify.app/sitemap.xml
