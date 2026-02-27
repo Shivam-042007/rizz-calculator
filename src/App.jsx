@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Camera, Upload, RefreshCw, Zap, Star, ShieldAlert, Sparkles, X, Download, Share2, ChevronLeft, ChevronRight, Github, Instagram } from 'lucide-react';
+import { Camera, Upload, RefreshCw, Zap, Star, ShieldAlert, Sparkles, X, Download, Share2, ChevronLeft, ChevronRight, Github, Instagram, Info, FileText } from 'lucide-react';
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 
 // Fetching the API key securely from Vite environment variables
@@ -309,9 +309,63 @@ export default function App() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-600/20 blur-[120px] rounded-full mix-blend-screen animate-[pulse-glow_10s_ease-in-out_infinite_reverse]"></div>
       </div>
 
-      {/* Main Calculator Card */}
-      <div className="relative z-10 w-full max-w-md bg-slate-900/60 backdrop-blur-2xl border border-slate-700/50 rounded-3xl shadow-[0_0_50px_-12px_rgba(236,72,153,0.15)] overflow-hidden p-6 md:p-8 transition-all duration-500">
+      {/* Main Calculator Card (Removed overflow-hidden so the dropdown can escape) */}
+      <div className="relative z-10 w-full max-w-md bg-slate-900/60 backdrop-blur-2xl border border-slate-700/50 rounded-3xl shadow-[0_0_50px_-12px_rgba(236,72,153,0.15)] p-6 md:p-8 transition-all duration-500">
         
+        {/* DOCUMENTATION HOVER TRIGGER */}
+        <div className="absolute top-6 right-6 z-50 group">
+          <button className="p-2 text-slate-400 hover:text-pink-400 hover:bg-slate-800 rounded-full transition-colors cursor-help">
+            <Info size={22} />
+          </button>
+          
+          {/* HIDDEN DOCUMENTATION PANEL */}
+          <div className="absolute top-full right-0 mt-2 w-72 sm:w-80 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl shadow-2xl p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right pointer-events-none group-hover:pointer-events-auto">
+            
+            <div className="flex items-center gap-2 mb-4 border-b border-slate-700 pb-3">
+              <FileText className="text-pink-400" size={18} />
+              <h3 className="text-sm font-bold text-white tracking-wide">System Documentation</h3>
+            </div>
+            
+            <div className="space-y-5 max-h-[60vh] overflow-y-auto pr-1 custom-scrollbar">
+              {/* Facts & Usage Section */}
+              <section>
+                <h4 className="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">Protocol Facts & Usage</h4>
+                <ul className="text-xs text-slate-300 space-y-2 list-disc pl-4 marker:text-slate-500">
+                  <li><strong>Engine:</strong> Powered by the Gemini 2.5 Flash neural network.</li>
+                  <li><strong>Mission:</strong> To playfully quantify the unquantifiable "Aura" using Gen-Z aesthetics.</li>
+                  <li><strong>Usage:</strong> Ensure your subject is facing the camera in well-lit conditions. Upload the biometric data file, and initialize the sequence.</li>
+                </ul>
+              </section>
+
+              {/* Face Analyzer Section */}
+              <section>
+                <h4 className="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">The Face Analyzer Module</h4>
+                <p className="text-xs text-slate-300 mb-3 leading-relaxed">
+                  The core analytical engine strictly dedicated to evaluating facial architecture, symmetry, and digital presence.
+                </p>
+                <div className="bg-slate-950/50 border border-slate-700/50 rounded-lg p-3 space-y-2">
+                  <div className="flex justify-between text-[11px]">
+                    <span className="text-slate-200 font-medium">Symmetry Check</span>
+                    <span className="text-slate-500">Active</span>
+                  </div>
+                  <div className="flex justify-between text-[11px]">
+                    <span className="text-slate-200 font-medium">Jawline Angularity</span>
+                    <span className="text-slate-500">Active</span>
+                  </div>
+                  <div className="flex justify-between text-[11px]">
+                    <span className="text-slate-200 font-medium">Canthal Tilt</span>
+                    <span className="text-slate-500">Active</span>
+                  </div>
+                  <div className="flex justify-between text-[11px] pt-1 border-t border-slate-700/50">
+                    <span className="text-indigo-400 italic font-medium">Entertainment Purpose</span>
+                    <span className="text-indigo-400">100%</span>
+                  </div>
+                </div>
+              </section>
+            </div>
+          </div>
+        </div>
+
         {/* Header */}
         <div className="text-center mb-8 group cursor-default">
           <div className="inline-flex items-center justify-center p-3 bg-slate-800/80 rounded-2xl mb-4 shadow-inner border border-slate-700/50 group-hover:scale-110 group-hover:bg-slate-800 transition-all duration-300">

@@ -19,3 +19,25 @@ body {
   background-color: #020617; /* slate-950 */
   color: #f8fafc;
 }
+
+/* CYBERPUNK HUD SCROLLBAR */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 4px; /* Super thin line */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 242, 255, 0.05); /* Faint cyan track */
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 0, 255, 0.6); /* Neon pink thumb */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.8); /* Pink glow */
+  transition: all 0.3s ease-in-out;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 242, 255, 0.9); /* Switches to bright cyan on hover */
+  box-shadow: 0 0 15px rgba(0, 242, 255, 1); /* Cyan glow */
+}
