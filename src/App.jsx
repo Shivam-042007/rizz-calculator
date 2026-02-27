@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Camera, Upload, RefreshCw, Zap, Star, ShieldAlert, Sparkles, X, Download, Share2, ChevronLeft, ChevronRight, Github, Instagram, Info, FileText } from 'lucide-react';
+import { Camera, RefreshCw, Zap, Star, ShieldAlert, Sparkles, X, Download, Share2, ChevronLeft, ChevronRight, Github, Instagram, Info, FileText } from 'lucide-react';
 import { GoogleGenerativeAI, SchemaType } from "@google/generative-ai";
 
 // Fetching the API key securely from Vite environment variables
@@ -309,7 +309,7 @@ export default function App() {
         <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-pink-600/20 blur-[120px] rounded-full mix-blend-screen animate-[pulse-glow_10s_ease-in-out_infinite_reverse]"></div>
       </div>
 
-      {/* Main Calculator Card (Removed overflow-hidden so the dropdown can escape) */}
+      {/* Main Calculator Card */}
       <div className="relative z-10 w-full max-w-md bg-slate-900/60 backdrop-blur-2xl border border-slate-700/50 rounded-3xl shadow-[0_0_50px_-12px_rgba(236,72,153,0.15)] p-6 md:p-8 transition-all duration-500">
         
         {/* DOCUMENTATION HOVER TRIGGER */}
@@ -319,49 +319,44 @@ export default function App() {
           </button>
           
           {/* HIDDEN DOCUMENTATION PANEL */}
-          <div className="absolute top-full right-0 mt-2 w-72 sm:w-80 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl shadow-2xl p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right pointer-events-none group-hover:pointer-events-auto">
+          <div className="absolute top-full right-0 mt-2 w-72 sm:w-80 bg-slate-900/95 backdrop-blur-xl border border-slate-700 rounded-2xl shadow-2xl p-5 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 origin-top-right pointer-events-none group-hover:pointer-events-auto z-50">
             
             <div className="flex items-center gap-2 mb-4 border-b border-slate-700 pb-3">
               <FileText className="text-pink-400" size={18} />
               <h3 className="text-sm font-bold text-white tracking-wide">System Documentation</h3>
             </div>
             
-            <div className="space-y-5 max-h-[60vh] overflow-y-auto pr-1 custom-scrollbar">
-              {/* Facts & Usage Section */}
+            <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-2 custom-scrollbar">
+              
+              {/* Protocol Section */}
               <section>
-                <h4 className="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">Protocol Facts & Usage</h4>
-                <ul className="text-xs text-slate-300 space-y-2 list-disc pl-4 marker:text-slate-500">
-                  <li><strong>Engine:</strong> Powered by the Gemini 2.5 Flash neural network.</li>
-                  <li><strong>Mission:</strong> To playfully quantify the unquantifiable "Aura" using Gen-Z aesthetics.</li>
-                  <li><strong>Usage:</strong> Ensure your subject is facing the camera in well-lit conditions. Upload the biometric data file, and initialize the sequence.</li>
+                <h4 className="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">Protocol & Engine</h4>
+                <ul className="text-xs text-slate-300 space-y-1.5 list-disc pl-4 marker:text-slate-500">
+                  <li><strong>Engine:</strong> Gemini 2.5 Flash Neural Network.</li>
+                  <li><strong>Mission:</strong> Quantify the unquantifiable "Aura".</li>
                 </ul>
               </section>
 
-              {/* Face Analyzer Section */}
+              {/* Data Privacy Section */}
               <section>
-                <h4 className="text-xs font-bold text-pink-400 uppercase tracking-wider mb-2">The Face Analyzer Module</h4>
-                <p className="text-xs text-slate-300 mb-3 leading-relaxed">
-                  The core analytical engine strictly dedicated to evaluating facial architecture, symmetry, and digital presence.
-                </p>
-                <div className="bg-slate-950/50 border border-slate-700/50 rounded-lg p-3 space-y-2">
-                  <div className="flex justify-between text-[11px]">
-                    <span className="text-slate-200 font-medium">Symmetry Check</span>
-                    <span className="text-slate-500">Active</span>
-                  </div>
-                  <div className="flex justify-between text-[11px]">
-                    <span className="text-slate-200 font-medium">Jawline Angularity</span>
-                    <span className="text-slate-500">Active</span>
-                  </div>
-                  <div className="flex justify-between text-[11px]">
-                    <span className="text-slate-200 font-medium">Canthal Tilt</span>
-                    <span className="text-slate-500">Active</span>
-                  </div>
-                  <div className="flex justify-between text-[11px] pt-1 border-t border-slate-700/50">
-                    <span className="text-indigo-400 italic font-medium">Entertainment Purpose</span>
-                    <span className="text-indigo-400">100%</span>
-                  </div>
+                <h4 className="text-xs font-bold text-emerald-400 uppercase tracking-wider mb-2 mt-4">Privacy & Security</h4>
+                <div className="bg-emerald-950/20 border border-emerald-900/50 rounded-lg p-3">
+                  <p className="text-[11px] text-emerald-200/80 leading-relaxed">
+                    <strong>Zero Data Retention:</strong> Your images are NEVER stored on our servers. Photos are processed securely via the Google API in real-time and are immediately discarded after your Aura Report is generated.
+                  </p>
                 </div>
               </section>
+
+              {/* Disclaimer Section */}
+              <section>
+                <h4 className="text-xs font-bold text-red-400 uppercase tracking-wider mb-2 mt-4">Official Disclaimer</h4>
+                <div className="bg-red-950/30 border border-red-900/50 rounded-lg p-3">
+                  <p className="text-[11px] text-red-200/80 leading-relaxed font-medium">
+                    This tool is a novelty generator intended for <strong>entertainment and comedic purposes only</strong>. The AI's analysis is trained on exaggerated internet slang and does not provide real medical, psychological, or objective aesthetic evaluations. Pls don't take it seriously. 🗿
+                  </p>
+                </div>
+              </section>
+
             </div>
           </div>
         </div>
@@ -635,37 +630,30 @@ export default function App() {
 
       {/* Footer & Info Section */}
       <footer className="mt-10 w-full max-w-md flex flex-col items-center gap-4 text-center pb-8 z-10 animate-in fade-in duration-1000">
-        <div className="bg-slate-900/40 border border-slate-800/60 rounded-3xl p-6 w-full backdrop-blur-md shadow-lg">
+        
+        <div className="bg-slate-900/40 border border-slate-800/60 rounded-3xl p-6 w-full backdrop-blur-md shadow-lg flex flex-col items-center">
           <h3 className="text-slate-200 font-bold mb-3 flex items-center justify-center gap-2 text-lg">
             <Sparkles className="w-5 h-5 text-pink-500" /> About This Build
           </h3>
-          <p className="text-slate-400 text-xs leading-relaxed font-medium">
-            The Rizz Calculator is an experimental AI aesthetics analyzer. 
-            Powered by React, Tailwind CSS, and Google's Gemini Vision AI to playfully analyze facial architecture and "rizz" potential. 
-            <br/><br/>
-            <span className="text-pink-400 font-bold tracking-wide uppercase text-[10px] bg-pink-500/10 px-3 py-1 rounded-full border border-pink-500/20">For entertainment purposes only!</span>
+          <p className="text-slate-400 text-xs leading-relaxed font-medium mb-4">
+            The Rizz Calculator is an experimental AI aesthetics analyzer built by Shivam. 
+            Powered by React, Tailwind CSS, and Google's Gemini AI to playfully analyze digital "aura". 
           </p>
+          
+          <div className="flex items-center gap-2 bg-red-500/10 px-4 py-2 rounded-full border border-red-500/20">
+            <ShieldAlert className="w-4 h-4 text-red-400" />
+            <span className="text-red-400 font-bold tracking-wide uppercase text-[10px]">
+              No images saved. For entertainment only.
+            </span>
+          </div>
         </div>
 
         {/* Social Links */}
         <div className="flex gap-4 mt-2">
-          {/* REPLACE 'YOUR_GITHUB_USERNAME' BELOW */}
-          <a 
-            href="https://github.com/Shivam-042007" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="p-3.5 bg-slate-900/80 border border-slate-700 hover:border-slate-500 hover:bg-slate-800 text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-[0_0_15px_rgba(255,255,255,0.1)]"
-          >
+          <a href="https://github.com/Shivam-042007" target="_blank" rel="noopener noreferrer" className="p-3.5 bg-slate-900/80 border border-slate-700 hover:border-slate-500 hover:bg-slate-800 text-slate-400 hover:text-white rounded-full transition-all duration-300 hover:scale-110 shadow-lg">
             <Github className="w-5 h-5" />
           </a>
-          
-          {/* REPLACE 'YOUR_INSTAGRAM_USERNAME' BELOW */}
-          <a 
-            href="https://instagram.com/hype_coding" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="p-3.5 bg-slate-900/80 border border-slate-700 hover:border-pink-500 hover:bg-slate-800 text-slate-400 hover:text-pink-400 rounded-full transition-all duration-300 hover:scale-110 shadow-lg hover:shadow-[0_0_15px_rgba(236,72,153,0.3)]"
-          >
+          <a href="https://instagram.com/hype_coding" target="_blank" rel="noopener noreferrer" className="p-3.5 bg-slate-900/80 border border-slate-700 hover:border-pink-500 hover:bg-slate-800 text-slate-400 hover:text-pink-400 rounded-full transition-all duration-300 hover:scale-110 shadow-lg">
             <Instagram className="w-5 h-5" />
           </a>
         </div>
@@ -695,4 +683,5 @@ export default function App() {
       `}} />
     </div>
   );
+}
 }
